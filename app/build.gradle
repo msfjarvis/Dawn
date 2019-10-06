@@ -170,7 +170,7 @@ dependencies {
   kapt 'androidx.room:room-compiler:2.1.0'
   implementation 'androidx.room:room-rxjava2:2.1.0'
   implementation 'com.google.android:flexbox:0.3.0'
-  implementation 'com.github.zagum:Android-ExpandIcon:1.1.1'
+  implementation 'com.github.zagum:Android-ExpandIcon:1.2.1'
   implementation 'me.saket:better-link-movement-method:2.2.0'
   implementation 'org.sufficientlysecure:html-textview:3.5'
   implementation 'org.jsoup:jsoup:1.10.3'
