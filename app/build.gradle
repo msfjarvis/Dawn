@@ -189,7 +189,7 @@ dependencies {
   implementation 'io.github.inflationx:viewpump:1.0.0'
   implementation 'com.bugsnag:bugsnag-android:4.3.3'
 
-  implementation 'com.github.saketme:markwon:b68d3058ca'
+  implementation 'com.github.saketme:markwon:v1.0.4'
   implementation 'com.atlassian.commonmark:commonmark-ext-autolink:0.11.0'
 
   // TODO: Replace all Date4J usages with ThreeTenAbp.
