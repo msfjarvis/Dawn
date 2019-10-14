@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Dank.iml" filepath="$PROJECT_DIR$/Dank.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/markdownhints/markdownhints.iml" filepath="$PROJECT_DIR$/markdownhints/markdownhints.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Dank.iml" filepath="$PROJECT_DIR$/Dank.iml" group="Dank" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="Dank/app" />
+      <module fileurl="file://$PROJECT_DIR$/markdownhints/markdownhints.iml" filepath="$PROJECT_DIR$/markdownhints/markdownhints.iml" group="Dank/markdownhints" />
     </modules>
   </component>
 </project>
