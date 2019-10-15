@@ -1,0 +1,16 @@
+name: "Build workflow"
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v1
+        with:
+          submodules: true
+      - name: "Run test suite"
+        run: "./gradlew dependencies assembleDebug"
+      - uses: actions/upload-artifact@master
+        with:
+          name: Debug APK
+          path: app/build/outputs/apk/debug/app-debug.apk
