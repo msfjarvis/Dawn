@@ -191,6 +191,7 @@
   <string name="submission_comment_option_unsave">Unsave</string>
   <string name="submission_comment_option_share_link">Share link</string>
   <string name="submission_comment_option_copy_link">Copy link</string>
+  <string name="submission_comment_option_select_text">Select text</string>
 
   <string name="link_option_share">Share link</string>
   <string name="link_option_copy">Copy link</string>
