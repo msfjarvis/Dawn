@@ -30,6 +30,7 @@ import me.saket.dank.data.SwipeEvent;
 import me.saket.dank.ui.UiEvent;
 import me.saket.dank.ui.submission.CommentSwipeActionsProvider;
 import me.saket.dank.ui.submission.events.CommentClicked;
+import me.saket.dank.ui.submission.events.CommentLongClicked;
 import me.saket.dank.utils.DankLinkMovementMethod;
 import me.saket.dank.widgets.IndentedLayout;
 import me.saket.dank.widgets.swipe.SwipeableLayout;
@@ -145,10 +146,14 @@ public interface SubmissionRemoteComment {
       );
     }
 
-    public void setupCollapseOnClick(Relay<UiEvent> uiEvents) {
+    public void setupClickEvents(Relay<UiEvent> uiEvents) {
       itemView.setOnClickListener(o -> {
         boolean willCollapse = !uiModel.isCollapsed();
         uiEvents.accept(CommentClicked.create(uiModel.comment(), getAdapterPosition(), itemView, willCollapse));
+      });
+      itemView.setOnLongClickListener(v -> {
+        uiEvents.accept(new CommentLongClicked(uiModel.body()));
+        return true;
       });
     }
 
@@ -215,7 +220,7 @@ public interface SubmissionRemoteComment {
       ViewHolder holder = ViewHolder.create(inflater, parent);
       holder.setBodyLinkMovementMethod(linkMovementMethod);
       holder.setupGestures(swipeActionsProvider);
-      holder.setupCollapseOnClick(uiEvents);
+      holder.setupClickEvents(uiEvents);
       holder.forwardTouchEventsToBackground(linkMovementMethod);
       return holder;
     }

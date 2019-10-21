@@ -14,6 +14,7 @@ import dagger.Lazy;
 import me.saket.dank.R;
 import me.saket.dank.di.Dank;
 import me.saket.dank.reddit.Reddit;
+import me.saket.dank.ui.submission.comment.TextSelectionDialogActivity;
 import me.saket.dank.utils.Clipboards;
 import me.saket.dank.utils.Intents;
 import me.saket.dank.utils.NestedOptionsPopupMenu;
@@ -27,6 +28,7 @@ public class CommentOptionsPopup extends NestedOptionsPopupMenu {
   private static final int ID_UNSAVE = 1_2;
   private static final int ID_SHARE_PERMALINK = 2;
   private static final int ID_COPY_PERMALINK = 3;
+  private static final int ID_SELECT_TEXT = 4;
 
   @Inject Lazy<Markdown> markdown;
   @Inject Lazy<BookmarksRepository> bookmarksRepository;
@@ -42,7 +44,6 @@ public class CommentOptionsPopup extends NestedOptionsPopupMenu {
   }
 
   private MenuStructure menuStructure(Context c) {
-    //noinspection AccessStaticViaInstance
     String commentBody = markdown.get().stripMarkdown(comment);
 
     List<MenuStructure.SingleLineItem> primaryItems = new ArrayList<>(3);
@@ -73,6 +74,11 @@ public class CommentOptionsPopup extends NestedOptionsPopupMenu {
         ID_COPY_PERMALINK,
         c.getString(R.string.submission_comment_option_copy_link),
         R.drawable.ic_copy_20dp
+    ));
+    primaryItems.add(MenuStructure.SingleLineItem.create(
+        ID_SELECT_TEXT,
+        c.getString(R.string.submission_comment_option_select_text),
+        R.drawable.ic_select_all_20dp
     ));
     return MenuStructure.create(commentBody, primaryItems);
   }
@@ -106,6 +112,11 @@ public class CommentOptionsPopup extends NestedOptionsPopupMenu {
       case ID_COPY_PERMALINK:
         Clipboards.save(c, permalinkWithContext);
         Toast.makeText(c, R.string.copy_to_clipboard_confirmation, Toast.LENGTH_SHORT).show();
+        break;
+
+      case ID_SELECT_TEXT:
+        CharSequence text = markdown.get().parse(comment);
+        c.startActivity(TextSelectionDialogActivity.intent(c, text));
         break;
 
       default:
