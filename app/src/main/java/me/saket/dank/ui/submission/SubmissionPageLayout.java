@@ -101,6 +101,7 @@ import me.saket.dank.ui.submission.adapter.SubmissionRemoteComment;
 import me.saket.dank.ui.submission.adapter.SubmissionScreenUiModel;
 import me.saket.dank.ui.submission.adapter.SubmissionUiConstructor;
 import me.saket.dank.ui.submission.events.CommentClicked;
+import me.saket.dank.ui.submission.events.CommentLongClicked;
 import me.saket.dank.ui.submission.events.CommentOptionSwipeEvent;
 import me.saket.dank.ui.submission.events.ContributionVoteSwipeEvent;
 import me.saket.dank.ui.submission.events.InlineReplyRequestEvent;
@@ -815,6 +816,12 @@ public class SubmissionPageLayout extends ExpandablePageLayout implements Expand
           }
           commentTreeUiConstructor.toggleCollapse(clickEvent.comment());
         });
+
+    // Show text selection dialog on comment long-clicks.
+    commentsAdapter.uiEvents()
+        .ofType(CommentLongClicked.class)
+        .takeUntil(lifecycle().onDestroy())
+        .subscribe(longClickEvent -> longClickEvent.openTextSelectionDialog(getContext()));
 
     // Thread continuations.
     commentsAdapter.streamLoadMoreCommentsClicks()

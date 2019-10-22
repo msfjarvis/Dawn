@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/textselectiondialog_root"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+
+  <ScrollView
+    android:id="@+id/textselectiondialog_container"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginStart="@dimen/spacing24"
+    android:layout_marginTop="@dimen/spacing48"
+    android:layout_marginEnd="@dimen/spacing24"
+    android:layout_marginBottom="@dimen/spacing48"
+    android:background="@drawable/background_popup_window"
+    android:clipToPadding="false"
+    android:elevation="@dimen/elevation_fab"
+    android:padding="@dimen/spacing12"
+    android:scrollbarStyle="outsideOverlay"
+    tools:ignore="UselessParent">
+
+    <me.saket.dank.utils.markdown.markwon.MarkdownTextView
+      android:id="@+id/textselectiondialog_text"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:inputType="none"
+      android:selectAllOnFocus="true"
+      android:textColor="@color/submission_comment_body_expanded"
+      android:textIsSelectable="true"
+      android:textSize="@dimen/submission_comment_body_expanded"
+      tools:text="That boss was my favourite. I bought Dark Souls after hearing how crushingly difficult it was from a friend of mine. He kept warning me about that boss and told me to prepare for a really difficult time." />
+
+  </ScrollView>
+
+</FrameLayout>

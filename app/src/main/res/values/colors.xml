@@ -28,6 +28,8 @@
   <color name="dialog_background">#393a3c</color>
   <color name="dialog_like_activity_window_background">@color/black_opacity_40</color>
 
+  <color name="splash_background">#2C2645</color>
+
   <color name="toolbar">@color/gray_900</color>
   <color name="navigation_bar">@color/gray_950</color>
 
@@ -116,4 +118,9 @@
     <item>#FF0097</item>
     <item>#1E7145</item>
   </array>
+  
+  <!-- Account Manager -->
+  <color name="account_manager_background">@color/blue_gray_50</color>
+  <color name="account_manager_swipe_delete">@color/red_300</color>
+  <color name="account_manager_swipe_switch">@color/blue_300</color>
 </resources>
